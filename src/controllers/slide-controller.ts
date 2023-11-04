@@ -6,8 +6,7 @@ export const getSlides = async (req: express.Request, res: express.Response) => 
         const slidesDbResponse = require('../db/slides.json');
         
         if (!slidesDbResponse) {
-          console.error("Cant get data from the source");
-          return res.sendStatus(400);
+          throw Error("Cant get data from the source")
         }
     
         const slidesDataDb: SlideDb[] = slidesDbResponse;
@@ -19,8 +18,6 @@ export const getSlides = async (req: express.Request, res: express.Response) => 
             image_url: `${req.protocol}://${req.get('host')}/images/${slide.imageName}`,
             audio_url: `${req.protocol}://${req.get('host')}/audio/${slide.audioName}`
         }))
-
-        console.log(slidesDataResponse)
 
         return res.status(200).json(slidesDataResponse).end();
         

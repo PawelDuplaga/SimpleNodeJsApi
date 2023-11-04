@@ -12,10 +12,12 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static('public'))
 
-const server = http.createServer(app);
+const appServer = http.createServer(app);
 
-server.listen(8080, () => {
+appServer.listen(8080, () => {
     console.log('Server running on http://localhost:8080/')
 })
 
 app.use('/', router());
+
+export default appServer;
