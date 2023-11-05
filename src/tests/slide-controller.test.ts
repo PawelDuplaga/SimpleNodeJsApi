@@ -25,9 +25,6 @@ const expectedResult = [
   }
 ]
 
-
-
-// Set up the Express route for testing
 jest.mock('../db/slides.json', () => mockSlidesData);
 
 describe('getSlides API', () => {
@@ -43,13 +40,3 @@ describe('getSlides API', () => {
   })
 
 });
-
-
-// jest.mock('../db/slides.json', () => ({}));
-
-// describe('getSlides API', () => {
-//   it('should handle errors and return a 400 status when unable to get data', async () => {
-//     const response = await supertest(appServer).get('/slides');
-//     expect(response.status).toBe(400);
-//   });
-// });
