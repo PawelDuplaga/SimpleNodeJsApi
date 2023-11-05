@@ -1,6 +1,6 @@
 const { describe, expect, it } = require('@jest/globals');
 const supertest = require('supertest');
-import appServer from '../index'
+import appServer from '../src/index'
 
 
 const mockSlidesData = [
@@ -25,7 +25,7 @@ const expectedResult = [
   }
 ]
 
-jest.mock('../db/slides.json', () => mockSlidesData);
+jest.mock('../src/db/slides.json', () => mockSlidesData);
 
 describe('getSlides API', () => {
   it('should return a list of slides when the request is successful!', async () => {
